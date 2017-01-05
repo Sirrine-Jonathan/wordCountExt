@@ -1,0 +1,76 @@
+body {
+	width:500px;
+}
+
+.container {
+  font-family:times;
+}
+
+.header {
+  font-family: 'Poiret One', cursive;
+}
+
+#controls {
+  text-align:center;
+  padding:10px;
+}
+
+#min {
+  color:blue;
+  width:20%;
+  min-width:50px;
+}
+
+#max {
+  color:red;
+  width:20%;
+  min-width:50px;
+}
+
+#sweetSpot {
+  font-size:1.5em;
+}
+
+#count {
+  text-align:center;
+}
+
+#words {
+  resize:both;
+  font-size:1.2em;
+  box-shadow:2px 3px 5px black;
+  padding:2%;
+  width:100%;
+}
+
+#words:focus {
+  outline:none;
+  box-shadow:3px 4px 10px black;
+}
+
+#credit {
+  font-family: 'Poiret One', cursive;
+  opacity:.4;
+  font-size:1em;
+  transition: all 1s;
+}
+
+#credit:hover {
+  opacity:1;
+  font-size:1.4em;
+}
+
+#link {
+  text-decoration:none;
+  color:black;
+}
+
+#link:hover {
+  font-weight:bold;
+}
+
+#message {
+	float:right;
+	font-size:1em;
+	opacity:.4;
+}

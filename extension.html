@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> 
+	<link href='wordCount.css' rel='stylesheet' type='text/css'> 
+	<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+
+	<title>Word Count</title> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+
+	<base target="_blank">
+
+</head>
+<body bgcolor="#FFF"> 
+<div class="container">
+  <div class="header">
+  <row>
+    <h1 id="count" class="col-xs-12 col-sm-5">WORD COUNT</h1>
+  </row>
+  <row>
+    <div id="controls" class="col-xs-12 col-sm-6">
+      <label>Min:</label>
+      <input id="minimum" type="number"/>
+      <label>Max:</label>
+      <input id="maximum" type="number"/><br>
+      <div id="sweetSpot">
+        <label>Sweet Spot:</label>
+        <span id="spot">100 - 150 words</span>
+      </div>
+	  <div id="minToGoal">
+		<label>Words to Goal:</label>
+		<span id="goal">0 words</span>
+	  </div>
+    </div>
+  </row>
+  </div>
+  <textarea id="words" rows="10"></textarea>
+  <span id="credit">
+	&copy;
+	<a id="link" href="http://codepen.io/enirrisky/full/JXQVNe/" target="_blank">
+		Jonathan Sirrine
+	</a> 
+	2016
+  </span>
+  
+  <span id="message">
+	
+  </span>
+</div>
+<script type="text/javascript" src="feed.js"></script>
+</body>
+</html>
+
