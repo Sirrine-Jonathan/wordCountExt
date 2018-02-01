@@ -8,6 +8,19 @@ body {
 
 .header {
   font-family: 'Poiret One', cursive;
+  font-size:1.1em;
+}
+
+#clear {
+	border-radius:5px;
+	margin:0 10px;
+	font-weight:bold;
+	background-color:#EEEEEE;
+	transition:background-color 0.5s;
+}
+
+#clear:hover {
+	background-color:#DDDDDD;
 }
 
 #controls {
