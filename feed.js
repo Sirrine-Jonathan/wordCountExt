@@ -1,7 +1,7 @@
-  var words; 
-  var min = 100;
-  var max = 150;
-  var remembered = false;
+var words, 
+    min = 100,
+    max = 150,
+    remembered = false;
 
 function updateCount(){
   words = $('#words').val();
@@ -26,9 +26,6 @@ function updateCount(){
     $('#count')
       .css('color','black');
   }
-  
-	//run storage
-	store();
 }
 
 function updateSweet(){
@@ -36,19 +33,32 @@ function updateSweet(){
 }
 
 
+
+/*
+main: This runs when the html page (drop down) is opened.
+*/
 $(document).ready(function(){
-	
+
   //retrieve storage
     retrieve();
   
+  /*
+	updates the wordcount with specific events on the html body
+  */
   $('#words').on('keydown keypress', function(e){
-		//console.log(e.keyCode);
+
 		//Enter            //Space            //Backspace       //Delete
 	if(e.keyCode == 13 || e.keyCode == 32 || e.keyCode == 8 || e.keyCode == 46){
 		updateCount();
+		store();
     }
+	if($('#clear')[0].innerHTML == 'Undo')
+		$('#clear')[0].innerHTML = 'Clear';
   });
   
+  /*
+	Event handler for the Max
+  */
   $('#maximum').on('change',function(){
     max = parseInt($('#maximum').val());
     $('#minimum').attr('maximum',max);
@@ -59,7 +69,11 @@ $(document).ready(function(){
     updateSweet();
     updateCount();
 	store();
-  })
+  });
+  
+  /*
+	Event handler for the Min
+  */
   $('#minimum').on('change',function(){
     min = parseInt($('#minimum').val());
     $('#maximum').attr('min',min);
@@ -71,6 +85,28 @@ $(document).ready(function(){
     updateCount();
 	store();
   });
+  
+  $('#clear').on('click', function(){
+	if(this.innerHTML == 'Clear')
+	{
+		store();
+		words = ''; 
+		min = 0;
+		max = 1;
+		$('#minimum').val(max - 1);
+		$('#maximum').val(min + 1);
+		$('#words').val(words);
+		this.innerHTML = 'Undo';
+		updateSweet();
+		updateCount();
+	}
+	else
+	{
+		retrieve();
+		this.innerHTML = 'Clear';
+	}
+  });
+  
 });
 
 function store() {
@@ -90,27 +126,47 @@ function store() {
     });
 }
 
-  function retrieve(){
-  chrome.storage.sync.get(['min','max','words'], function(items){
-	if(!jQuery.isEmptyObject(items)){
-		if(items.words != undefined){
-			$('#words').val(items.words);
+/*
+	retrieve: 
+	remembers the min, max, and the words on the page from local storage
+	updates all the fields or sets defaults
+	displays a message in bottom right hand corner that storage has been found
+*/
+function retrieve(){
+	chrome.storage.sync.get(['min','max','words'], function(items){
+		
+		//runs if the object in local storage is not empty
+		if(!jQuery.isEmptyObject(items)){
+			
+			//if words is not empty, populates the body
+			if(items.words != undefined){
+				$('#words').val(items.words);
+			}
+			
+			//if a min is recorded in storage
+			if(items.min != undefined){
+				min = items.min;
+				$('#minimum').val(min);
+			}
+			//sets default min
+			else{
+				$('#minimum').val(min);
+			}
+			
+			//if max is recorded in storage
+			if(items.max != undefined){
+				max = items.max;
+				$('#maximum').val(max);
+			}
+			//sets default max
+			else{
+				$('#maximum').val(max);
+			}
 		}
-		if(items.min != undefined){
-			min = items.min;
-			$('#minimum').val(min);
-		}
-		else{
-			$('#minimum').val(min);
-		}
-		if(items.max != undefined){
-			max = items.max;
-			$('#maximum').val(max);
-		}
-		else{
-			$('#maximum').val(max);
-		}
-	}
-	$('#message').text('-content retrieved-');
-  });
+		$('#message').text('-content retrieved-');
+	
+		//update count displays
+		updateSweet();
+		updateCount();
+	});
 }
