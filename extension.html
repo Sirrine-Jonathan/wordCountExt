@@ -1,25 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-
+	<!--texts-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> 
-	<link href='wordCount.css' rel='stylesheet' type='text/css'> 
 	<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width" /> 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-
-	<title>Word Count</title> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
 integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<script
-	  src="https://code.jquery.com/jquery-3.1.1.min.js"
-	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	  crossorigin="anonymous">
-	</script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
-
+	
+	<!--style-->
+	<link href='wordCount.css' rel='stylesheet' type='text/css'> 
+	
+	<!--meta-->
+	<meta name="viewport" content="width=device-width" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<title>Word Count</title> 
 	<base target="_blank">
+	
+	<!--javascript-->
+	<script src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+	<script type="text/javascript" src="feed.js"></script>
 
 </head>
 <body bgcolor="#FFF"> 
@@ -40,16 +40,15 @@ integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkz
       </div>
 	  <div id="minToGoal">
 		<label>Words to Goal:</label>
-		<span id="goal">0 words</span>
+		<span id="goal">0 words</span> <button id="clear" >Clear</button>
 	  </div>
     </div>
   </row>
   </div>
   <textarea id="words" rows="10"></textarea>
   <span id="credit">
-	&copy;
-	<a id="link" href="http://codepen.io/enirrisky/full/JXQVNe/" target="_blank">
-		Jonathan Sirrine
+	<a id="link" href="https://github.com/Sirrine-Jonathan/wordCountExt" target="_blank">
+		Fork on Github
 	</a> 
 	2016
   </span>
@@ -58,7 +57,6 @@ integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkz
 	
   </span>
 </div>
-<script type="text/javascript" src="feed.js"></script>
 </body>
 </html>
 
